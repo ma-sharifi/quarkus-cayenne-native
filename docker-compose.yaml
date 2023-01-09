@@ -1,0 +1,16 @@
+version: "3.0"
+services:
+  mariadb:
+    image: "mariadb:10.9.4"
+#    restart: 'always'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+     # Where our data will be persisted
+    volumes:
+      - /Users/mahdi/docker/db_data:/var/lib/mysql
+      - /Users/mahdi/docker/db_conf:/etc/mysql
+    environment:
+      MYSQL_DATABASE: "cayenne"
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
