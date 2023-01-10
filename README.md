@@ -2,6 +2,11 @@
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
+Run database with:
+```
+docker compose up --remove-orphans
+```
+
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
 ## Running the application in dev mode
@@ -49,4 +54,4 @@ If you want to learn more about building native executables, please consult http
 
 ## Related Guides
 
-- JDBC Driver - H2 ([guide](https://quarkus.io/guides/datasource)): Connect to the H2 database via JDBC
+- JDBC Driver - MariaDb ([guide](https://quarkus.io/guides/datasource)): Connect to the MariaDb database via JDBC

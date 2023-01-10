@@ -41,12 +41,12 @@ public class DatasourceProducer
                         .password("root")
                         .pool(1,3).build()
         )
-        .addModule(binder ->{
-          binder.bind(ResourceLocator.class).toInstance(new ClassLoaderResourceLocatorFix());
-          binder.bind(Key.get(ResourceLocator.class, Constants.SERVER_RESOURCE_LOCATOR)).toInstance(new ClassLoaderResourceLocatorFix());
+//        .addModule(binder ->{
+//          binder.bind(ResourceLocator.class).toInstance(new ClassLoaderResourceLocatorFix());
+//          binder.bind(Key.get(ResourceLocator.class, Constants.SERVER_RESOURCE_LOCATOR)).toInstance(new ClassLoaderResourceLocatorFix());
 //          binder.bind(ResourceLocator.class).to(ClassLoaderResourceLocatorFix.class);
 //          binder.bind(Key.get(ResourceLocator.class, Constants.SERVER_RESOURCE_LOCATOR)).to(ClassLoaderResourceLocatorFix.class);
-        })
+//        })
         .build();
     objectContext  = cayenneRuntime.newContext();
   }
