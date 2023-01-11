@@ -14,3 +14,16 @@ services:
       MYSQL_DATABASE: "cayenne"
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
+  postgres:
+    image: postgres
+#    volumes:
+#      - pgressql_data4:/VAR/LIB/POSTGRESQL/DATA
+    environment:
+      POSTGRES_DB: "cayenne"
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - '5435:5432'
+#volumes:
+#  pgressql_data4:
+#    driver: local

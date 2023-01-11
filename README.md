@@ -1,13 +1,30 @@
 # quarkus-cayenne-native Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Used Quarkus as my framework and MariaDB and Postgres as the database and Apache Cayenne as my ORM.
 
-Run database with:
+Run databases with:
 ```
 docker compose up --remove-orphans
 ```
+I faced with a lot of different errors, all of them solved by adding dependencies to *resources/reflect-config* file. 
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+### The following are some errors I've encountered: 
+* org.apache.cayenne.di.DIRuntimeException: Error creating instance of class org.apache.cayenne.dba.postgres.PostgresAdapter of type org.apache.cayenne.dba.DbAdapter
+* Caused by: org.apache.cayenne.CayenneRuntimeException: [v.4.2.M3 Mar 13 2021 14:15:14] Error creating TypesHandler 'null'.
+* Both of them solved by adding following lines to the *resources/reflect-config* file.
+```json
+{
+    "name":"org.apache.cayenne.dba.TypesHandler",
+    "allDeclaredFields":true,
+    "queryAllPublicMethods":true,
+    "queryAllDeclaredConstructors":true
+  }
+```
+Notes: After each change it needs to run following line to get new reflection items:
+```shell script
+java -agentlib:native-image-agent=config-output-dir=./native/ -jar target/quarkus-app/quarkus-run.jar
+```
 
 ## Running the application in dev mode
 
@@ -15,8 +32,6 @@ You can run your application in dev mode that enables live coding using:
 ```shell script
 ./mvnw compile quarkus:dev
 ```
-
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
 
 ## Packaging and running the application
 

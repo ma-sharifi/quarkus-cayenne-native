@@ -21,24 +21,19 @@ import org.apache.cayenne.resource.ResourceLocator;
 @ApplicationScoped
 public class DatasourceProducer
 {
+
   @Produces
   @RequestScoped
   public ObjectContext objectContext()
   {
-//    org.apache.cayenne.configuration.server.MainCayenneServerModuleProvider;
-
     ObjectContext context = cayenneRuntime.newContext(objectContext);
-
-    // Make sure we do not cache any objects from previous rounds
     DataContext channel = (DataContext) context.getChannel();
     channel.invalidateObjects(channel.getObjectStore().registeredNodes());
-
     return context;
   }
   private ServerRuntime cayenneRuntime;
   private ObjectContext objectContext;
 
-//  @Inject ValueObjectTypeRegistry valueObjectTypeRegistry;
   @PostConstruct
   public void  init(){
     cayenneRuntime = ServerRuntime.builder()
@@ -50,13 +45,8 @@ public class DatasourceProducer
                         .password("root")
                         .pool(1,3).build()
         )
-            .addModule(new ServerModule())
-            .addModule(binder ->{
-              //binder.bind(DataDomainFlushActionFactory.class).to(DefaultDataDomainFlushActionFactory.class);
-//          binder.bind(ValueComparisonStrategyFactory.class).toInstance(new DefaultValueComparisonStrategyFactory(valueObjectTypeRegistry));
-//          binder.bind(ResourceLocator.class).toInstance(new ClassLoaderResourceLocatorFix());
-//          binder.bind(Key.get(ResourceLocator.class, Constants.SERVER_RESOURCE_LOCATOR)).toInstance(new ClassLoaderResourceLocatorFix());
-        })
+//      .addModule(new ServerModule()) //Either add addModule(new ServerModule()) or add .disableModulesAutoLoading(). One of them are MANDATORY
+
         .build();
     objectContext  = cayenneRuntime.newContext();
   }

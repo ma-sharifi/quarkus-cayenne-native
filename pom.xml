@@ -56,6 +56,11 @@
 
     <dependency>
       <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
 
@@ -137,10 +142,7 @@
         <quarkus.native.additional-build-args>
           -H:+ReportExceptionStackTraces,
           -H:ResourceConfigurationResources=resource-config.json,
-          -H:ReflectionConfigurationResources=reflect-config.json,
-          -H:DynamicProxyConfigurationResources=proxy-config.json,
-          -H:JNIConfigurationResources=jni-config.json,
-          -H:SerializationConfigurationResources=serialization-config.json
+          -H:ReflectionConfigurationResources=reflect-config.json
         </quarkus.native.additional-build-args>
       </properties>
     </profile>

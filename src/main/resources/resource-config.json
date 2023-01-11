@@ -47,6 +47,9 @@
         "pattern":"\\Qorg/apache/cayenne/dba/mysql/types.xml\\E"
       },
       {
+        "pattern":"\\Qorg/apache/cayenne/dba/postgres/types.xml\\E"
+      },
+      {
         "pattern":"\\Qorg/jboss/threads/Version.properties\\E"
       },
       {
@@ -59,18 +62,8 @@
         "pattern":"\\Qquarkus-runtime-config-defaults.properties\\E"
       }
     ]},
-  "bundles":[
-    {
-      "name":"com.mysql.cj.LocalizedErrorMessages",
-      "locales":[""]
-    },
-    {
-      "name":"org.glassfish.json.messages",
-      "locales":[""]
-    },
-    {
-      "name":"yasson-messages",
-      "locales":[""]
-    }
-  ]
+  "bundles":[{
+    "name":"com.mysql.cj.LocalizedErrorMessages",
+    "locales":[""]
+  }]
 }

@@ -40,6 +40,7 @@ public class ShipmentResource
   public Response sayHello(){
     return Response.ok("Hello World").build();
   }
+
   @GET
   @Path("count")
   @Produces(MediaType.TEXT_PLAIN)
@@ -53,10 +54,10 @@ public class ShipmentResource
   @Produces(MediaType.TEXT_PLAIN)
   public Response count2(){
     CayenneRuntime cayenneRuntime = ServerRuntime.builder()
-            .disableModulesAutoLoading()
+//            .disableModulesAutoLoading() //Either add addModule(new ServerModule()) or add .disableModulesAutoLoading(). One of them are MANDATORY
             .addConfig("cayenne-project.xml")
-            .dataSource(DataSourceBuilder.url("jdbc:mysql://localhost:3308/cayenne")
-                    .driver(com.mysql.cj.jdbc.Driver.class.getName())
+            .dataSource(DataSourceBuilder.url("jdbc:postgresql://localhost:5435/postgres")
+                    .driver(org.postgresql.Driver.class.getName())
                     .userName("root")
                     .password("root")
                     .pool(1,3).build()

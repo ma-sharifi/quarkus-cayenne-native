@@ -17,8 +17,7 @@
   "queryAllPublicConstructors":true,
   "methods":[
     {"name":"count","parameterTypes":[] }, 
-    {"name":"count2","parameterTypes":[] }, 
-    {"name":"getShipments","parameterTypes":[] }
+    {"name":"count2","parameterTypes":[] }
   ]
 },
 {
@@ -26,17 +25,8 @@
 },
 {
   "name":"com.djem.model.Shipment",
-  "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
-  "queryAllPublicMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"com.djem.model.auto._Shipment",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true
+  "queryAllPublicMethods":true
 },
 {
   "name":"com.mysql.cj.conf.url.SingleConnectionUrl",
@@ -55,6 +45,14 @@
 },
 {
   "name":"com.mysql.cj.protocol.StandardSocketFactory",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.HmacCore$HmacSHA256",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.PBKDF2Core$HmacSHA256",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
@@ -510,10 +508,6 @@
   "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
 },
 {
-  "name":"java.io.Serializable",
-  "queryAllDeclaredMethods":true
-},
-{
   "name":"java.lang.Boolean"
 },
 {
@@ -536,8 +530,16 @@
   ]
 },
 {
+  "name":"java.lang.SecurityManager",
+  "methods":[{"name":"checkPermission","parameterTypes":["java.security.Permission"] }]
+},
+{
   "name":"java.lang.String",
   "allDeclaredFields":true
+},
+{
+  "name":"java.lang.System",
+  "methods":[{"name":"getSecurityManager","parameterTypes":[] }]
 },
 {
   "name":"java.lang.Thread",
@@ -592,6 +594,10 @@
   "name":"java.nio.file.Path"
 },
 {
+  "name":"java.security.AccessController",
+  "methods":[{"name":"doPrivileged","parameterTypes":["java.security.PrivilegedExceptionAction"] }]
+},
+{
   "name":"java.security.SecureRandomParameters"
 },
 {
@@ -636,20 +642,8 @@
   "name":"java.time.Duration"
 },
 {
-  "name":"java.util.AbstractCollection",
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true
-},
-{
-  "name":"java.util.AbstractList",
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true
-},
-{
   "name":"java.util.ArrayList",
-  "queryAllDeclaredMethods":true,
-  "queryAllPublicMethods":true,
-  "queryAllDeclaredConstructors":true
+  "queryAllPublicMethods":true
 },
 {
   "name":"java.util.HashMap",
@@ -720,10 +714,6 @@
   "name":"javax.ws.rs.ext.ContextResolver"
 },
 {
-  "name":"javax.ws.rs.ext.Providers",
-  "methods":[{"name":"getContextResolver","parameterTypes":["java.lang.Class","javax.ws.rs.core.MediaType"] }]
-},
-{
   "name":"jdk.crac.Resource"
 },
 {
@@ -731,46 +721,10 @@
   "methods":[{"name":"getUnsafe","parameterTypes":[] }]
 },
 {
-  "name":"org.apache.cayenne.BaseDataObject",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true
-},
-{
   "name":"org.apache.cayenne.DataChannel"
 },
 {
-  "name":"org.apache.cayenne.DataObject",
-  "queryAllDeclaredMethods":true
-},
-{
   "name":"org.apache.cayenne.ObjectContext"
-},
-{
-  "name":"org.apache.cayenne.ObjectId",
-  "queryAllDeclaredMethods":true
-},
-{
-  "name":"org.apache.cayenne.ObjectIdNumber",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"getEntityName","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.cayenne.Persistent",
-  "queryAllDeclaredMethods":true
-},
-{
-  "name":"org.apache.cayenne.PersistentObject",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"getObjectId","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.cayenne.Validating",
-  "queryAllDeclaredMethods":true
 },
 {
   "name":"org.apache.cayenne.access.DataDomain",
@@ -910,10 +864,6 @@
 },
 {
   "name":"org.apache.cayenne.access.types.IntegerType",
-  "allDeclaredFields":true
-},
-{
-  "name":"org.apache.cayenne.access.types.InternalUnsupportedTypeFactory",
   "allDeclaredFields":true
 },
 {
@@ -1261,6 +1211,12 @@
   "queryAllPublicMethods":true,
   "queryAllDeclaredConstructors":true,
   "methods":[{"name":"<init>","parameterTypes":["org.apache.cayenne.di.AdhocObjectFactory"] }]
+},
+{
+  "name":"org.apache.cayenne.dba.postgres.PostgresAdapter",
+  "allDeclaredFields":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":["org.apache.cayenne.configuration.RuntimeProperties","java.util.List","java.util.List","java.util.List","org.apache.cayenne.resource.ResourceLocator","org.apache.cayenne.access.types.ValueObjectTypeRegistry"] }]
 },
 {
   "name":"org.apache.cayenne.dba.postgres.PostgresPkGenerator",
@@ -1626,16 +1582,6 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
-  "name":"org.jboss.resteasy.plugins.providers.jsonb.i18n.Messages_$bundle",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"org.jboss.resteasy.plugins.providers.jsonb.i18n.Messages_$bundle_en"
-},
-{
-  "name":"org.jboss.resteasy.plugins.providers.jsonb.i18n.Messages_$bundle_en_US"
-},
-{
   "name":"org.jboss.resteasy.plugins.providers.jsonp.AbstractJsonpProvider",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true
@@ -1693,16 +1639,6 @@
   "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.LogMessages_$logger_en_US"
 },
 {
-  "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.Messages_$bundle",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.Messages_$bundle_en"
-},
-{
-  "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.Messages_$bundle_en_US"
-},
-{
   "name":"org.jboss.resteasy.tracing.api.RESTEasyTracing"
 },
 {
@@ -1739,6 +1675,10 @@
   "fields":[{"name":"threadStatus"}]
 },
 {
+  "name":"org.postgresql.Driver",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"org.wildfly.common.lock.SpinLock",
   "fields":[{"name":"owner"}]
 },
@@ -1769,6 +1709,10 @@
 },
 {
   "name":"sun.security.provider.SHA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA256",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 }
 ]
