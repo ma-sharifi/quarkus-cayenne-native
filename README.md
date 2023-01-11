@@ -1,7 +1,8 @@
-# quarkus-cayenne-native Project
-
+# quarkus-cayenne-native MariaDB and Postgres Project
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 Used Quarkus as my framework and MariaDB and Postgres as the database and Apache Cayenne as my ORM.
+
+You can follow the graalvm issue [here](https://github.com/oracle/graal/issues/5716). 
 
 Run databases with:
 ```
@@ -44,11 +45,6 @@ Be aware that it’s not an _über-jar_ as the dependencies are copied into the 
 
 The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
-
 The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
 ## Creating a native executable
@@ -56,6 +52,8 @@ The application, packaged as an _über-jar_, is now runnable using `java -jar ta
 You can create a native executable using: 
 ```shell script
 ./mvnw package -Pnative
+OR
+ mvn clean package -Pnative
 ```
 
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
@@ -64,9 +62,50 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ```
 
 You can then execute your native executable with: `./target/quarkus-cayenne-native-1.0.0-SNAPSHOT-runner`
-
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
-## Related Guides
+### TEST With Httpie
+#### Request for test mariaDB:
+```bash
+http GET :8080/shipments/count-maria
+```
+Response will be like:
+```
+3
+```
+#### Request for test PostgreSQL:
+```bash
+http :8080/shipments/count-postgres
+```
+Response will be like:
+```
+1
+```
 
-- JDBC Driver - MariaDb ([guide](https://quarkus.io/guides/datasource)): Connect to the MariaDb database via JDBC
+#### Request for creating shipment:
+```bash
+http POST :8080/shipments name="Stock#1"
+```
+#### Successful response:
+The header and Location is enough for this API. We can remove the response body. If client needs, It can get url of the just created entity from `Location` in HTTP Header.
+```bash
+HTTP/1.1 201
+Location: http://localhost:8080/shipments/200
+```
+
+### Get one shipment
+#### Request:
+```bash
+http GET localhost:8080/shipments/200
+```
+#### Successful response:
+```bash
+HTTP/1.1 200 OK
+Content-Type: application/json
+content-length: 18
+```
+```json
+{
+  "name": "Stock#1"
+}
+```

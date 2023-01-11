@@ -13,7 +13,7 @@
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
     <quarkus.platform.version>2.15.2.Final</quarkus.platform.version>
-    <skipITs>true</skipITs>
+    <skipITs>false</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
 
     <cayenne.version>4.2.M3</cayenne.version>
@@ -64,11 +64,18 @@
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
 
+    <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
   <build>
     <plugins>
@@ -136,7 +143,7 @@
         </property>
       </activation>
       <properties>
-        <skipITs>true</skipITs>
+        <skipITs>false</skipITs>
         <quarkus.package.type>native</quarkus.package.type>
         <quarkus.native.resources.includes>cayenne-project.xml,datamap.map.xml,project.graph.xml</quarkus.native.resources.includes> <!-- MANDATORY -->
         <quarkus.native.additional-build-args>

@@ -9,7 +9,7 @@
     "name":"[Ljavax.ws.rs.ext.WriterInterceptor;"
   },
   {
-    "name":"com.djem.ShipmentResource",
+    "name":"com.djem.endpoint.ShipmentEndpoint",
     "allDeclaredFields":true,
     "queryAllDeclaredMethods":true,
     "queryAllPublicMethods":true,
@@ -26,7 +26,15 @@
   {
     "name":"com.djem.model.Shipment",
     "queryAllDeclaredMethods":true,
-    "queryAllPublicMethods":true
+    "queryAllPublicMethods":true,
+    "queryAllDeclaredConstructors":true
+  }
+,
+  {
+    "name":"com.djem.dto.ShipmentDto",
+    "queryAllDeclaredMethods":true,
+    "queryAllPublicMethods":true,
+    "queryAllDeclaredConstructors":true
   },
   {
     "name":"com.mysql.cj.conf.url.SingleConnectionUrl",
