@@ -42,7 +42,7 @@ public class ShipmentEndpoint {
         CayenneRuntime cayenneRuntime = ServerRuntime.builder()
 //            .disableModulesAutoLoading() //Either add addModule(new ServerModule()) or add .disableModulesAutoLoading(). One of them are MANDATORY
                 .addConfig("cayenne-project.xml")
-                .dataSource(DataSourceBuilder.url("jdbc:postgresql://localhost:5435/postgres")
+                .dataSource(DataSourceBuilder.url("jdbc:postgresql://localhost:5435/cayenne")
                         .driver(org.postgresql.Driver.class.getName())
                         .userName("root")
                         .password("root")
