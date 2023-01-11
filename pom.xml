@@ -2,7 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.acme</groupId>
+  <groupId>org.djem</groupId>
   <artifactId>quarkus-cayenne-native</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
@@ -16,7 +16,7 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
 
-    <cayenne.version>4.1.1</cayenne.version>
+    <cayenne.version>4.2</cayenne.version>
 
   </properties>
   <dependencyManagement>
@@ -35,7 +35,8 @@
     <dependency>
         <groupId>org.apache.cayenne</groupId>
         <artifactId>cayenne-server</artifactId>
-        <version>4.2.M3</version>
+        <version>4.2.RC3-SNAPSHOT</version>
+<!--        <version>4.2.M3</version>-->
     <exclusions>
       <exclusion>
             <groupId>mysql</groupId>
@@ -45,16 +46,15 @@
     </dependency>
 
     <dependency>
+      <groupId>org.apache.cayenne</groupId>
+      <artifactId>cayenne-commitlog</artifactId>
+      <version>4.2.RC3-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
-
-
-
-<!--    <dependency>-->
-<!--      <groupId>mysql</groupId>-->
-<!--      <artifactId>mysql-connector-java</artifactId>-->
-<!--    </dependency>-->
 
     <!-- https://mvnrepository.com/artifact/io.quarkus/quarkus-jdbc-mysql -->
     <dependency>
@@ -62,16 +62,11 @@
       <artifactId>quarkus-jdbc-mysql</artifactId>
     </dependency>
 
-
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-arc</artifactId>
-    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -153,8 +148,7 @@
           -H:ReflectionConfigurationResources=reflect-config.json,
           -H:DynamicProxyConfigurationResources=proxy-config.json,
           -H:JNIConfigurationResources=jni-config.json,
-          -H:SerializationConfigurationResources=serialization-config.json,
-          --initialize-at-run-time=com.mysql.cj.protocol.a.authentication.AuthenticationOciClient,
+          -H:SerializationConfigurationResources=serialization-config.json
         </quarkus.native.additional-build-args>
       </properties>
     </profile>

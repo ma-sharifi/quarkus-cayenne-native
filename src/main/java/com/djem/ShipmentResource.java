@@ -1,6 +1,8 @@
 package com.djem;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ServiceLoader;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -11,9 +13,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.cayenne.ObjectContext;
+import org.apache.cayenne.configuration.CayenneRuntime;
+import org.apache.cayenne.configuration.server.MainCayenneServerModuleProvider;
+import org.apache.cayenne.configuration.server.ServerModule;
+import org.apache.cayenne.configuration.server.ServerRuntime;
+import org.apache.cayenne.datasource.DataSourceBuilder;
+import org.apache.cayenne.di.spi.ModuleProvider;
 import org.apache.cayenne.query.ObjectSelect;
 
 import com.djem.model.Shipment;
+import org.apache.cayenne.reflect.generic.DefaultValueComparisonStrategyFactory;
+import org.apache.cayenne.reflect.generic.ValueComparisonStrategyFactory;
 
 @Path("shipments")
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +46,25 @@ public class ShipmentResource
   public Response count(){
     long count= ObjectSelect.query(Shipment.class)
         .selectCount(objectContext);
+    return Response.ok(count).build();
+  }
+  @GET
+  @Path("count2")
+  @Produces(MediaType.TEXT_PLAIN)
+  public Response count2(){
+    CayenneRuntime cayenneRuntime = ServerRuntime.builder()
+            .disableModulesAutoLoading()
+            .addConfig("cayenne-project.xml")
+            .dataSource(DataSourceBuilder.url("jdbc:mysql://localhost:3308/cayenne")
+                    .driver(com.mysql.cj.jdbc.Driver.class.getName())
+                    .userName("root")
+                    .password("root")
+                    .pool(1,3).build()
+            )
+            .addModule(new ServerModule())
+            .build();
+    long count= ObjectSelect.query(Shipment.class)
+        .selectCount(cayenneRuntime.newContext());
     return Response.ok(count).build();
   }
   @GET

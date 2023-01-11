@@ -9,9 +9,6 @@
   "name":"[Ljavax.ws.rs.ext.WriterInterceptor;"
 },
 {
-  "name":"com.djem.DatasourceProducer"
-},
-{
   "name":"com.djem.ShipmentResource",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
@@ -20,8 +17,12 @@
   "queryAllPublicConstructors":true,
   "methods":[
     {"name":"count","parameterTypes":[] }, 
+    {"name":"count2","parameterTypes":[] }, 
     {"name":"getShipments","parameterTypes":[] }
   ]
+},
+{
+  "name":"com.djem.cayenne.DatasourceProducer"
 },
 {
   "name":"com.djem.model.Shipment",
@@ -35,8 +36,7 @@
   "name":"com.djem.model.auto._Shipment",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"getName","parameterTypes":[] }]
+  "queryAllDeclaredConstructors":true
 },
 {
   "name":"com.mysql.cj.conf.url.SingleConnectionUrl",
@@ -404,7 +404,7 @@
   "name":"io.smallrye.config.ConfigMessages_$bundle_en"
 },
 {
-  "name":"io.smallrye.config.ConfigMessages_$bundle_en_NL"
+  "name":"io.smallrye.config.ConfigMessages_$bundle_en_US"
 },
 {
   "name":"io.smallrye.config.PropertiesLocationConfigSourceFactory",
@@ -734,8 +734,7 @@
   "name":"org.apache.cayenne.BaseDataObject",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"getSnapshotVersion","parameterTypes":[] }]
+  "queryAllDeclaredConstructors":true
 },
 {
   "name":"org.apache.cayenne.DataChannel"
@@ -749,17 +748,14 @@
 },
 {
   "name":"org.apache.cayenne.ObjectId",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"org.apache.cayenne.ObjectIdNumber",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true,
-  "methods":[
-    {"name":"getEntityName","parameterTypes":[] }, 
-    {"name":"getIdSnapshot","parameterTypes":[] }, 
-    {"name":"getKey","parameterTypes":[] }, 
-    {"name":"getReplacementIdMap","parameterTypes":[] }, 
-    {"name":"isReplacementIdAttached","parameterTypes":[] }, 
-    {"name":"isTemporary","parameterTypes":[] }
-  ]
+  "methods":[{"name":"getEntityName","parameterTypes":[] }]
 },
 {
   "name":"org.apache.cayenne.Persistent",
@@ -770,10 +766,7 @@
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true,
-  "methods":[
-    {"name":"getObjectId","parameterTypes":[] }, 
-    {"name":"getPersistenceState","parameterTypes":[] }
-  ]
+  "methods":[{"name":"getObjectId","parameterTypes":[] }]
 },
 {
   "name":"org.apache.cayenne.Validating",
@@ -806,6 +799,20 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"org.apache.cayenne.access.flush.DefaultDataDomainFlushActionFactory",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.cayenne.access.flush.operation.DefaultDbRowOpSorter",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":["org.apache.cayenne.di.Provider"] }]
+},
+{
   "name":"org.apache.cayenne.access.jdbc.reader.DefaultRowReaderFactory",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true,
@@ -829,6 +836,13 @@
 {
   "name":"org.apache.cayenne.access.types.BigDecimalType",
   "allDeclaredFields":true
+},
+{
+  "name":"org.apache.cayenne.access.types.BigDecimalValueType",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"org.apache.cayenne.access.types.BigIntegerValueType",
@@ -880,11 +894,26 @@
   "allDeclaredFields":true
 },
 {
+  "name":"org.apache.cayenne.access.types.DurationType",
+  "allDeclaredFields":true
+},
+{
   "name":"org.apache.cayenne.access.types.FloatType",
   "allDeclaredFields":true
 },
 {
+  "name":"org.apache.cayenne.access.types.GeoJsonType",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"org.apache.cayenne.access.types.IntegerType",
+  "allDeclaredFields":true
+},
+{
+  "name":"org.apache.cayenne.access.types.InternalUnsupportedTypeFactory",
   "allDeclaredFields":true
 },
 {
@@ -913,6 +942,13 @@
   "allDeclaredFields":true
 },
 {
+  "name":"org.apache.cayenne.access.types.PeriodValueType",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"org.apache.cayenne.access.types.ShortType",
   "allDeclaredFields":true
 },
@@ -938,6 +974,13 @@
 {
   "name":"org.apache.cayenne.access.types.VoidType",
   "allDeclaredFields":true
+},
+{
+  "name":"org.apache.cayenne.access.types.WktType",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"org.apache.cayenne.ashwood.AshwoodEntitySorter",
@@ -1318,6 +1361,13 @@
   "methods":[{"name":"<init>","parameterTypes":["org.apache.cayenne.configuration.RuntimeProperties"] }]
 },
 {
+  "name":"org.apache.cayenne.reflect.generic.DefaultValueComparisonStrategyFactory",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":["org.apache.cayenne.access.types.ValueObjectTypeRegistry"] }]
+},
+{
   "name":"org.apache.cayenne.resource.ClassLoaderResourceLocator",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true,
@@ -1576,6 +1626,16 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"org.jboss.resteasy.plugins.providers.jsonb.i18n.Messages_$bundle",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"org.jboss.resteasy.plugins.providers.jsonb.i18n.Messages_$bundle_en"
+},
+{
+  "name":"org.jboss.resteasy.plugins.providers.jsonb.i18n.Messages_$bundle_en_US"
+},
+{
   "name":"org.jboss.resteasy.plugins.providers.jsonp.AbstractJsonpProvider",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true
@@ -1630,7 +1690,7 @@
   "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.LogMessages_$logger_en"
 },
 {
-  "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.LogMessages_$logger_en_NL"
+  "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.LogMessages_$logger_en_US"
 },
 {
   "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.Messages_$bundle",
@@ -1640,7 +1700,7 @@
   "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.Messages_$bundle_en"
 },
 {
-  "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.Messages_$bundle_en_NL"
+  "name":"org.jboss.resteasy.resteasy_jaxrs.i18n.Messages_$bundle_en_US"
 },
 {
   "name":"org.jboss.resteasy.tracing.api.RESTEasyTracing"

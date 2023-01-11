@@ -17,9 +17,6 @@
       "pattern":"\\QMETA-INF/services/javax.json.bind.spi.JsonbProvider\\E"
     }, 
     {
-      "pattern":"\\QMETA-INF/services/org.apache.cayenne.configuration.server.CayenneServerModuleProvider\\E"
-    }, 
-    {
       "pattern":"\\QMETA-INF/services/org.eclipse.microprofile.config.spi.ConfigProviderResolver\\E"
     }, 
     {
@@ -62,8 +59,18 @@
       "pattern":"\\Qquarkus-runtime-config-defaults.properties\\E"
     }
   ]},
-  "bundles":[{
+  "bundles":[
+    {
       "name":"com.mysql.cj.LocalizedErrorMessages",
       "locales":[""]
-    }]
+    }, 
+    {
+      "name":"org.glassfish.json.messages",
+      "locales":[""]
+    }, 
+    {
+      "name":"yasson-messages",
+      "locales":[""]
+    }
+  ]
 }
