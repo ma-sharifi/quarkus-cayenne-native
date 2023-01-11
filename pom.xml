@@ -16,7 +16,7 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
 
-    <cayenne.version>4.2</cayenne.version>
+    <cayenne.version>4.2.M3</cayenne.version>
 
   </properties>
   <dependencyManagement>
@@ -35,20 +35,13 @@
     <dependency>
         <groupId>org.apache.cayenne</groupId>
         <artifactId>cayenne-server</artifactId>
-        <version>4.2.RC3-SNAPSHOT</version>
-<!--        <version>4.2.M3</version>-->
-    <exclusions>
-      <exclusion>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </exclusion>
-      </exclusions>
+        <version>${cayenne.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.cayenne</groupId>
       <artifactId>cayenne-commitlog</artifactId>
-      <version>4.2.RC3-SNAPSHOT</version>
+      <version>${cayenne.version}</version>
     </dependency>
 
     <dependency>
@@ -56,7 +49,6 @@
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/io.quarkus/quarkus-jdbc-mysql -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-mysql</artifactId>
@@ -141,7 +133,7 @@
       <properties>
         <skipITs>true</skipITs>
         <quarkus.package.type>native</quarkus.package.type>
-        <quarkus.native.resources.includes>cayenne-project.xml,datamap.map.xml,project.graph.xml</quarkus.native.resources.includes>
+        <quarkus.native.resources.includes>cayenne-project.xml,datamap.map.xml,project.graph.xml</quarkus.native.resources.includes> <!-- MANDATORY -->
         <quarkus.native.additional-build-args>
           -H:+ReportExceptionStackTraces,
           -H:ResourceConfigurationResources=resource-config.json,
